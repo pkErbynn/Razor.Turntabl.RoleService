@@ -9,9 +9,24 @@
 @*<h2>Details</h2>*@
 <h2>@Model.Name</h2>
 <ul>
-    <li>Email: @Model.Email</li>
-    <li>Phone Number: @Model.PhoneNumber</li>
-    <li>Address: @Model.Address</li>
+    @if (Model.Email != null)
+    {
+        <li>Email: @Model.Email</li>
+    }
+
+    @if (Model.PhoneNumber != null)
+    {
+        <li>Phone Number: @Model.PhoneNumber</li>
+    }
+    @if (Model.Address != null)
+    {
+        <li>Address: @Model.Address</li>
+    }
+
+    @if ((Model.Email == null) && (Model.PhoneNumber == null) && (Model.Address == null)  )
+    {
+        <li>No details available</li>
+    }
 </ul>
 
 

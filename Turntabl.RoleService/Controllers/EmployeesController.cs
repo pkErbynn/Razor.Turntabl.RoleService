@@ -9,32 +9,30 @@ namespace Turntabl.RoleService.Controllers
 {
     public class EmployeesController : Controller
     {
+        private ApplicationDbContext _context;
+        public EmployeesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Employees
         public ActionResult Index()
         {
-            var employees = GetEmployees();
+            var employees = _context.Employees.ToList();
             return View(employees);
-        }
-
-        private IEnumerable<Employee> GetEmployees()
-        {
-            return new List<Employee>
-            {
-                new Employee { Id = 1, Name = "John Smith" },
-                new Employee { Id = 2, Name = "Mary Williams" }
-            };
         }
 
         public ActionResult Details(int id)
         {
-            var employee = GetEmployees().SingleOrDefault(c => c.Id == id);
+            var employee = _context.Employees.SingleOrDefault(c => c.Id == id);
             if (employee == null)
                 return HttpNotFound();
 
             return View(employee);
         }
-
-       
-        
     }
 }

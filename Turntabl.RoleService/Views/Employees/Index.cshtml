@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Turntabl.RoleService.Models.Employee>
+@*
+    Note: I've set the model for this view to IEnumerable<Employee>.
+        This is a simple interface implemented by the list class. Since
+        in this view we only want to iterate over this list, and we don't
+        need any of the operations in the List class (eg Add, Remove, etc),
+        it's better to use the IEnumerable interface, which allows use to
+        iterate over the list. If in the future, we replace the List with a
+        different data structure, as long as it is enumerable, our view code
+        will remain unchanged.
+*@
+
+@{
+    //ViewBag.Title = "Index";
+    ViewBag.Title = "Employees";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employees</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any employees yet.</p>
+}
+else
+{
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Employees</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(employee.Name, "Details", "Employees", new { id = employee.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}

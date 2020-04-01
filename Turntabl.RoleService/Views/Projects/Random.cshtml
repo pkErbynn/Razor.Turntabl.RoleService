@@ -1,0 +1,27 @@
+﻿@model Turntabl.RoleService.ViewModels.RandomProjectViewModel
+    
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{ 
+    var className = Model.Employees.Count > 1 ? "popular" : null;
+}
+<h2 class="@className">@Model.Project.Name</h2>
+<p> works!! </p>
+
+@if(Model.Employees.Count == 0)
+{
+    <text>No one has been assigned this project</text>
+}
+else
+{
+    <ul>
+        @foreach(var employee in Model.Employees)
+        {
+            <li>@employee.Name</li>
+        }
+    </ul>
+}

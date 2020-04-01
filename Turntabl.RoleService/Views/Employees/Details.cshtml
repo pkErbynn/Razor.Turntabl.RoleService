@@ -2,11 +2,9 @@
 
 @{
     ViewBag.Title = Model.Name;
-    //ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<h2>Details</h2>*@
 <h2>@Model.Name</h2>
 <ul>
     @if (Model.Email != null)
@@ -18,6 +16,7 @@
     {
         <li>Phone Number: @Model.PhoneNumber</li>
     }
+
     @if (Model.Address != null)
     {
         <li>Address: @Model.Address</li>

@@ -10,10 +10,20 @@ namespace Turntabl.RoleService.Controllers
 {
     public class ProjectsController : Controller
     {
+        ApplicationDbContext _context;
+        public ProjectsController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Projects
         public ActionResult Index()
         {
-            var projects = GetProjects();
+            var projects = _context.Projects.ToList();
 
             return View(projects);
         }

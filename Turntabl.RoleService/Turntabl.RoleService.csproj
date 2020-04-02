@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202004012046085_AddEmailPhonenumAddressToEmployee.Designer.cs">
       <DependentUpon>202004012046085_AddEmailPhonenumAddressToEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004020832173_AddProjectModel.cs" />
+    <Compile Include="Migrations\202004020832173_AddProjectModel.Designer.cs">
+      <DependentUpon>202004020832173_AddProjectModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -286,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004012046085_AddEmailPhonenumAddressToEmployee.resx">
       <DependentUpon>202004012046085_AddEmailPhonenumAddressToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020832173_AddProjectModel.resx">
+      <DependentUpon>202004020832173_AddProjectModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

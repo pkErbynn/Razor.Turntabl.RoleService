@@ -191,6 +191,10 @@
     <Compile Include="Migrations\202004020832173_AddProjectModel.Designer.cs">
       <DependentUpon>202004020832173_AddProjectModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004020913283_ReplaceProjectModelDatesWithStatus.cs" />
+    <Compile Include="Migrations\202004020913283_ReplaceProjectModelDatesWithStatus.Designer.cs">
+      <DependentUpon>202004020913283_ReplaceProjectModelDatesWithStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -293,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004020832173_AddProjectModel.resx">
       <DependentUpon>202004020832173_AddProjectModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020913283_ReplaceProjectModelDatesWithStatus.resx">
+      <DependentUpon>202004020913283_ReplaceProjectModelDatesWithStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

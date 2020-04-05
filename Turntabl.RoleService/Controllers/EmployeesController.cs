@@ -30,19 +30,21 @@ namespace Turntabl.RoleService.Controllers
         [HttpPost]
         public ActionResult Save(Employee employee)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("EmployeeForm", employee);
+            }
             if(employee.Id == 0)
             {
                 _context.Employees.Add(employee);
             }
-            else
-            {
-                var employeeInDbToUpdate = _context.Employees.Single(e => e.Id == employee.Id);
+          
+            var employeeInDbToUpdate = _context.Employees.Single(e => e.Id == employee.Id);
 
-                employeeInDbToUpdate.Name = employee.Name;
-                employeeInDbToUpdate.Email = employee.Email;
-                employeeInDbToUpdate.PhoneNumber = employee.PhoneNumber;
-                employeeInDbToUpdate.Address = employee.Address;
-            }
+            employeeInDbToUpdate.Name = employee.Name;
+            employeeInDbToUpdate.Email = employee.Email;
+            employeeInDbToUpdate.PhoneNumber = employee.PhoneNumber;
+            employeeInDbToUpdate.Address = employee.Address;
 
             _context.SaveChanges();
 

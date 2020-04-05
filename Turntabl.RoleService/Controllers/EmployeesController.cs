@@ -26,11 +26,24 @@ namespace Turntabl.RoleService.Controllers
             return View();
         }
 
-        // persist form data to db
+        // create or update employee
         [HttpPost]
-        public ActionResult Create(Employee employee)
+        public ActionResult Save(Employee employee)
         {
-            _context.Employees.Add(employee);
+            if(employee.Id == 0)
+            {
+                _context.Employees.Add(employee);
+            }
+            else
+            {
+                var employeeInDbToUpdate = _context.Employees.Single(e => e.Id == employee.Id);
+
+                employeeInDbToUpdate.Name = employee.Name;
+                employeeInDbToUpdate.Email = employee.Email;
+                employeeInDbToUpdate.PhoneNumber = employee.PhoneNumber;
+                employeeInDbToUpdate.Address = employee.Address;
+            }
+
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Employees");

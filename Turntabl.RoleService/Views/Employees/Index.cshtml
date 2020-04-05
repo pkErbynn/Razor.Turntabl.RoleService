@@ -24,7 +24,7 @@
 }
 else
 {
-    <table class="table table-bordered table-hover">
+    <table class="table  table-hover">
         <thead>
             <tr>
                 <th>Employees</th>
@@ -35,7 +35,8 @@ else
             {
             <tr>
                 <td>@Html.ActionLink(employee.Name, "Edit", "Employees", new { id = employee.Id }, null)</td>
-                @*<td>@Html.ActionLink(employee.Name, "Details", "Employees", new { id = employee.Id }, null)</td>*@
+                <td> @Html.ActionLink("View", "Details", "Employees", new { id = employee.Id }, null) </td>
+
             </tr>
             }
         </tbody>

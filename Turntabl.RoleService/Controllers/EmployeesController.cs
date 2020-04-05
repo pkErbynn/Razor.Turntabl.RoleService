@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Turntabl.RoleService.Models;
+using Turntabl.RoleService.ViewModels;
 
 namespace Turntabl.RoleService.Controllers
 {
@@ -21,6 +22,12 @@ namespace Turntabl.RoleService.Controllers
         }
 
         public ActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employee employee)
         {
             return View();
         }

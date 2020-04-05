@@ -18,6 +18,10 @@
 <h2>Employees</h2>
 <br />
 
+<p>
+    @Html.ActionLink("New  Employee", "New", "Employees", null, new { @class = "btn btn-primary" })
+</p>
+
 @if (!Model.Any())
 {
     <p>We don't have any employees yet.</p>
@@ -34,9 +38,13 @@ else
             @foreach (var employee in Model)
             {
             <tr>
-                <td>@Html.ActionLink(employee.Name, "Edit", "Employees", new { id = employee.Id }, null)</td>
+                @*<td>@Html.ActionLink(employee.Name, "Edit", "Employees", new { id = employee.Id }, null)</td>*@
+                <td>@employee.Name </td>
                 <td> @Html.ActionLink("View", "Details", "Employees", new { id = employee.Id }, null) </td>
-
+                <td>
+                    <a href="@Url.Action("Edit", "Employees", new {id = employee.Id})" title="Edit"> <img alt="Edit" src="@Url.Content("https://cdn4.iconfinder.com/data/icons/simplicio/128x128/file_edit.png")" width="15" style="horiz-align:left "> </a>
+                    <https: //cloud.githubusercontent.com/assets/17072343/25988928/01416c5a-36c8-11e7-9b16-efa305d42166.PNG>
+                </td>
             </tr>
             }
         </tbody>

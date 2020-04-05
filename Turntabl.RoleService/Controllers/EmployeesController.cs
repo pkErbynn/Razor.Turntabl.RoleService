@@ -23,7 +23,7 @@ namespace Turntabl.RoleService.Controllers
 
         public ActionResult New()
         {
-            return View();
+            return View("EmployeeForm");
         }
 
         // create or update employee

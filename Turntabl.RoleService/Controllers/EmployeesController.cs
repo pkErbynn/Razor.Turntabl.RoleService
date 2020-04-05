@@ -26,10 +26,14 @@ namespace Turntabl.RoleService.Controllers
             return View();
         }
 
+        // persist form data to db
         [HttpPost]
         public ActionResult Create(Employee employee)
         {
-            return View();
+            _context.Employees.Add(employee);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Employees");
         }
 
         // GET: Employees

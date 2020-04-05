@@ -11,12 +11,12 @@
 *@
 
 @{
-    //ViewBag.Title = "Index";
     ViewBag.Title = "Employees";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Employees</h2>
+<br />
 
 @if (!Model.Any())
 {
@@ -33,9 +33,10 @@ else
         <tbody>
             @foreach (var employee in Model)
             {
-                <tr>
-                    <td>@Html.ActionLink(employee.Name, "Details", "Employees", new { id = employee.Id }, null)</td>
-                </tr>
+            <tr>
+                <td>@Html.ActionLink(employee.Name, "Edit", "Employees", new { id = employee.Id }, null)</td>
+                @*<td>@Html.ActionLink(employee.Name, "Details", "Employees", new { id = employee.Id }, null)</td>*@
+            </tr>
             }
         </tbody>
     </table>

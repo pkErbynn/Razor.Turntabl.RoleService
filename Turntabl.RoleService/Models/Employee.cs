@@ -16,6 +16,7 @@ namespace Turntabl.RoleService.Models
 
         public string Email { get; set; }
 
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         public string Address { get; set; }

@@ -36,6 +36,17 @@ namespace Turntabl.RoleService.Controllers
             return RedirectToAction("Index", "Employees");
         }
 
+        public ActionResult Edit(int id)
+        {
+            var employee = _context.Employees.SingleOrDefault(e => e.Id == id);
+            if(employee == null)
+            {
+                return HttpNotFound();
+            };
+            
+            return View("EmployeeForm", employee);
+        }
+
         // GET: Employees
         public ActionResult Index()
         {

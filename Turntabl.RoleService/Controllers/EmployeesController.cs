@@ -20,6 +20,11 @@ namespace Turntabl.RoleService.Controllers
             _context.Dispose();
         }
 
+        public ActionResult New()
+        {
+            return View();
+        }
+
         // GET: Employees
         public ActionResult Index()
         {
@@ -27,11 +32,14 @@ namespace Turntabl.RoleService.Controllers
             return View(employees);
         }
 
+        // GET: Employees/Details/8
         public ActionResult Details(int id)
         {
-            var employee = _context.Employees.SingleOrDefault(c => c.Id == id);
+            var employee = _context.Employees.SingleOrDefault(e => e.Id == id);
             if (employee == null)
+            {
                 return HttpNotFound();
+            }
 
             return View(employee);
         }

@@ -1,0 +1,25 @@
+﻿@model  Turntabl.RoleService.Models.Project
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+
+<ul>
+    @if (Model.Description != null)
+    {
+    <li>Description: @Model.Description</li>
+    }
+
+    @if (Model.Status != null)
+    {
+    <li>Status: @Model.Status</li>
+    }
+
+    @if ((Model.Description == null) && (Model.Status == null))
+    {
+        <li>No details available</li>
+    }
+</ul>
+

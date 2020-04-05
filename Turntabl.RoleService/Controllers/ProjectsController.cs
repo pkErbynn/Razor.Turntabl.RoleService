@@ -28,13 +28,16 @@ namespace Turntabl.RoleService.Controllers
             return View(projects);
         }
 
-        private IEnumerable<Project> GetProjects()
+        // GET: Projects/Details/2
+        public ActionResult Details(int id)
         {
-            return new List<Project>
+            var project = _context.Projects.SingleOrDefault(p => p.Id == id);
+            if (project == null)
             {
-                new Project { Id = 1, Name = "Hadoop" },
-                new Project { Id = 2, Name = "Holliday Me" }
-            };
+                return HttpNotFound();
+            }
+
+            return View(project);
         }
 
         // GET: Projects/Random

@@ -5,11 +5,11 @@
 }
 
 <h2>New Employee</h2>
-<br />
+<hr />
 
 @using (Html.BeginForm("Save", "Employees"))
 {
-    @Html.ValidationSummary(true, "Please provide the following with valid data")
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
@@ -24,11 +24,20 @@
     <div class="form-group">
         @Html.LabelFor(m => m.PhoneNumber)
         @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Address)
         @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address)
     </div>
     @Html.HiddenFor(m => m.Id)
     <button type="submit" class="btn btn-primary">Save</button>
 }
+
+
+@*client-side jquery validation*@
+
+@*@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

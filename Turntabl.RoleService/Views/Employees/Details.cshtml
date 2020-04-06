@@ -6,6 +6,8 @@
 }
 
 <h2>@Model.Name</h2>
+<hr />
+
 <ul>
     @if (Model.Email != null)
     {
@@ -22,7 +24,7 @@
         <li>Address: @Model.Address</li>
     }
 
-    @if ((Model.Email == null) && (Model.PhoneNumber == null) && (Model.Address == null)  )
+    @if ((Model.Email == null) && (Model.PhoneNumber == null) && (Model.Address == null))
     {
         <li>No details available</li>
     }

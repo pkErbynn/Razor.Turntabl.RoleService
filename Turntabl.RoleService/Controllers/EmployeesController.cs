@@ -21,37 +21,45 @@ namespace Turntabl.RoleService.Controllers
             _context.Dispose();
         }
 
+          // GET: employees/new 
         public ActionResult New()
         {
+            // default value, 0 assign to employee id
             var employee = new Employee();
             return View("EmployeeForm", employee);
         }
 
+        // POST: employees/save
         // create or update employee
         [HttpPost]
         public ActionResult Save(Employee employee)
         {
             if (!ModelState.IsValid)
             {
-                return View("EmployeeForm", employee);
+                return View("EmployeeForm");
             }
+
+            // creat or update employee
             if(employee.Id == 0)
             {
                 _context.Employees.Add(employee);
             }
-          
-            var employeeInDbToUpdate = _context.Employees.Single(e => e.Id == employee.Id);
+            else
+            {
+                var employeeInDbToUpdate = _context.Employees.Single(e => e.Id == employee.Id);
 
-            employeeInDbToUpdate.Name = employee.Name;
-            employeeInDbToUpdate.Email = employee.Email;
-            employeeInDbToUpdate.PhoneNumber = employee.PhoneNumber;
-            employeeInDbToUpdate.Address = employee.Address;
+                employeeInDbToUpdate.Name = employee.Name;
+                employeeInDbToUpdate.Email = employee.Email;
+                employeeInDbToUpdate.PhoneNumber = employee.PhoneNumber;
+                employeeInDbToUpdate.Address = employee.Address;
+            }
 
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Employees");
         }
 
+        // GET: employees/edit/5
         public ActionResult Edit(int id)
         {
             var employee = _context.Employees.SingleOrDefault(e => e.Id == id);
